@@ -1,6 +1,6 @@
 {
 	"name": "@angelisium/jsx-lite",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "A minimalist and lite JSX alternative to React and co.",
 	"main": "source/index.js",
 	"repository": {
