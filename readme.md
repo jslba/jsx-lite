@@ -19,7 +19,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
 	esbuild: {
 		jsxFactory: 'createElementBabel',
-		jsxInject: 'import { createElementBabel } from "lite-jsx";'
+		jsxInject: 'import { createElementBabel } from "@angelisium/lite-jsx";'
 	},
 });
 ```
