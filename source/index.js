@@ -43,6 +43,9 @@ const jsxLite = (function () {
 	}
 
 	function createElementBabel(type, options, ...children) {
+		if (options === null) {
+			options = {};
+		}
 		return createElement(type, options, children);
 	}
 
