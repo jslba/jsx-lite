@@ -39,7 +39,7 @@ window.counter = counter;
 document.body.appendChild(
   <main>
     <h1>Mon titre</h1>
-    <p id="output">Count est à {count} !</p>
+    <p id="output">Count est à {count.toString()} !</p>
     {/* pas encore de support pour les listeners */}
     <button onclick="window.counter();false">Up</button>
   </main>
