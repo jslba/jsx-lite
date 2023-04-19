@@ -20,8 +20,8 @@ import { defineConfig } from "vite";
 export default defineConfig({
 	esbuild: {
 		jsxFactory: 'createElementBabel',
-		jsxInject: 'import { createElementBabel } from "@angelisium/lite-jsx";'
-	},
+		jsxInject: 'import { createElementBabel } from "@angelisium/jsx-lite";'
+	}
 });
 ```
 
@@ -46,7 +46,7 @@ document.body.appendChild(
 );
 
 // output
-import { createElementBabel } from "@angelisium/lite-jsx";
+import { createElementBabel } from "@angelisium/jsx-lite";
 var count = 0;
 function counter() {
   let out = document.querySelector('#output');
@@ -54,11 +54,11 @@ function counter() {
 }
 window.counter = counter;
 document.body.appendChild(
-	createElementBabel("main", null,
-		createElementBabel("h1", null, "Mon titre"),
-		createElementBabel("p", { id: "output" }, "Count est \xE0 ", count, " !"),
-		createElementBabel("button", { onclick: "window.counter();false" }, "Up")
-	)
+  createElementBabel("main", null,
+    createElementBabel("h1", null, "Mon titre"),
+    createElementBabel("p", { id: "output" }, "Count est \xE0 ", count, " !"),
+    createElementBabel("button", { onclick: "window.counter();false" }, "Up")
+  )
 );
 ```
 
