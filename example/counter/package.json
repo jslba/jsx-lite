@@ -1,0 +1,19 @@
+{
+	"name": "jsx-lite-counter",
+	"description": "An example of a dynamic counter made with jsx-lite and vitejs",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"start": "vite",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"vite": "^4.3.1"
+	},
+	"dependencies": {
+		"@angelisium/jsx-lite": "file:../.."
+	}
+}
