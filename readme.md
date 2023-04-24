@@ -42,6 +42,6 @@ No planned JSX fragments support (for now) ;  because I cannot find any concrete
 case requiring the  use of fragments ; most can be solved  with the use of array
 and `append` instead of `appendChild`.
 
-[eg]: /example/readme.md
+[eg]: /example/
 [index]: /source/index.js
 [htmlElemnt]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
