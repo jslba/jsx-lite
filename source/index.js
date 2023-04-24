@@ -26,7 +26,12 @@ const jsxLite = (function () {
 		 * Add Attribute                                                      *
 		 **********************************************************************/
 		for (let [attr, value] of Object.entries(attribute)) {
-			element.setAttribute(attr, value);
+			if(attr.startsWith("on") && typeof value === "function") {
+				let event = attr.slice(2);
+				element.addEventListener(event, value);
+			} else {
+				element.setAttribute(attr, value);
+			}
 		}
 		/**********************************************************************
 		 * Add Children                                                       *
