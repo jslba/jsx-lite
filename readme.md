@@ -17,7 +17,7 @@ as you wish.
 // classic JS chunk :
 var p = document.createElement("p");
 p.appendChild(
-	document.createTextNode("Hello World")
+   document.createTextNode("Hello World")
 );
 var main = document.createElement("main");
 main.setAttribute("class", "light");
@@ -26,9 +26,9 @@ document.body.appendChild(main);
 
 // becomes :
 document.body.appendChild(
-	<main class="light">
-		<p>Hello World</p>
-	</main>
+   <main class="light">
+      <p>Hello World</p>
+   </main>
 );
 
 ```
