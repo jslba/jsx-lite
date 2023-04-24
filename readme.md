@@ -1,66 +1,47 @@
-# [createElement][index] implement of JSX
+# JSX Lite
+![npm](https://img.shields.io/npm/v/mtwin-codec?color=blue&style=flat)
+![GitHub](https://img.shields.io/github/license/jslba/mtwin-codec?style=flat)
 
-**Pourquoi ?**   
-Principalement pour augmenter la maintenabilité de petit projet ne nécésitant
-pas une manipulation avancé de React (et de JSX en général), nottament dans les
-projets compilant en [script utilisateur][userscript].
+The philosophy of this project is to provide a light and fast structure to allow
+the  use  of the  JSX  syntax  in  a  JavaScript  application to  increase  your
+productivity and the  maintainability of your project !
 
+All JSX  chunk are valid [HTMLElement][htmlElemnt] which can then be manipulated
+as you wish.
 
-état actuelle :
- - ne prend pas en charge les fragments (`<></>`, `<React.Fragment />`, etc)
- - ne prend pas en charge les éléments custom (`<CustomElement />`, etc)
- - pas de support pour les listeners `on<Event>` (soon)
+> **Note**   
+> If you want to know how to use it, you can see some examples [here][eg].
 
-Utilisation :
-
-```js
-// dans vite.config.js
-import { defineConfig } from "vite";
-
-export default defineConfig({
-	esbuild: {
-		jsxFactory: 'createElementBabel',
-		jsxInject: 'import { createElementBabel } from "@angelisium/jsx-lite";'
-	}
-});
-```
-
+### Demonstration :
 ```jsx
-// dans vos sources
-var count = 0;
+// classic JS chunk :
+var p = document.createElement("p");
+p.appendChild(
+	document.createTextNode("Hello World")
+);
+var main = document.createElement("main");
+main.setAttribute("class", "light");
+main.appendChild(p);
+document.body.appendChild(main);
 
-function counter() {
-  let out = document.querySelector('#output');
-  out.textContent = `Count est à ${++count} !`;
-}
-
-window.counter = counter;
-
+// becomes :
 document.body.appendChild(
-  <main>
-    <h1>Mon titre</h1>
-    <p id="output">Count est à {count.toString()} !</p>
-    {/* pas encore de support pour les listeners */}
-    <button onclick="window.counter();false">Up</button>
-  </main>
+	<main class="light">
+		<p>Hello World</p>
+	</main>
 );
 
-// output
-import { createElementBabel } from "@angelisium/jsx-lite";
-var count = 0;
-function counter() {
-  let out = document.querySelector('#output');
-  out.textContent = `Count est à ${++count} !`;
-}
-window.counter = counter;
-document.body.appendChild(
-  createElementBabel("main", null,
-    createElementBabel("h1", null, "Mon titre"),
-    createElementBabel("p", { id: "output" }, "Count est \xE0 ", count, " !"),
-    createElementBabel("button", { onclick: "window.counter();false" }, "Up")
-  )
-);
 ```
 
-[index]: ./source/index.js
-[userscript]: https://en.wikipedia.org/wiki/Userscript
+### &#x26a0;&#xfe0f; Warning &#x26a0;&#xfe0f; 
+Currently the project does not support :
+ - the JSX fragments like `<> ... </>` or `<React.Fragment />`.
+ - custom elements like `<CustomJSXElement />`.
+
+No planned support for fragments (for  now) ; because I cannot find any concrete
+case requiring the use of fragments ; most can be solved with the use of a array
+and `append` instead of `appendChild`.
+
+[eg]: /example/readme.md
+[index]: /source/index.js
+[htmlElemnt]: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement
