@@ -1,5 +1,5 @@
 # JSX Lite
-![npm](https://img.shields.io/npm/v/mtwin-codec?color=blue&style=flat)
+![npm](https://img.shields.io/npm/v/@angelisium/jsx-lite?color=blue&style=flat)
 ![GitHub](https://img.shields.io/github/license/jslba/mtwin-codec?style=flat)
 
 The philosophy of this project is to provide a light and fast structure to allow
