@@ -1,15 +1,21 @@
 const root = document.querySelector("#root");
 
-var count = 0;
-count.__proto__.toString = () => "Count is " + count + "!";
-const output = <p>{count.toString()}</p>;
-count.__proto__.next = function () {
-	count++;
-	output.textContent = count.toString();
-};
+const counter = new Proxy(
+	{ value: 0 },
+	{
+		set(target, property, value) {
+			target[property] = value;
+			if (property == "value") {
+				target.node.textContent = target.value;
+			}
+			return true;
+		},
+	}
+);
 
+counter.node = <p>{counter.value.toString()}</p>;
 root.append(
 	<h1>Counter</h1>,
-	output,
-	<button onclick={count.next}>Up</button>
+	counter.node,
+	<button onclick={(_) => counter.value++}>Up</button>
 );
