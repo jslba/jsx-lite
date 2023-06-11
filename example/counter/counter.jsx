@@ -17,5 +17,5 @@ counter.node = <p>{counter.value.toString()}</p>;
 root.append(
 	<h1>Counter</h1>,
 	counter.node,
-	<button onclick={(_) => counter.value++}>Up</button>
+	<button onclick={() => counter.value++}>Up</button>
 );
